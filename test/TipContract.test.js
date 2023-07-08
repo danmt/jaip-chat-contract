@@ -23,7 +23,7 @@ contract("TipContract", (accounts) => {
     const beforeStreamerBalance = await web3.eth.getBalance(streamer);
 
     // act
-    const receipt = await tipContract.sendTip(message, {
+    const receipt = await tipContract.sendTip(streamer, message, {
       from: tipper,
       value: tipAmount,
     });
