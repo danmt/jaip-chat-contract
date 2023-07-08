@@ -32,7 +32,7 @@ contract("TipContract", (accounts) => {
     const afterTipperBalance = await web3.eth.getBalance(tipper);
     const afterStreamerBalance = await web3.eth.getBalance(streamer);
     const gasUsed = receipt.receipt.gasUsed;
-    const gasPrice = await web3.eth.getGasPrice();
+    const gasPrice = receipt.receipt.effectiveGasPrice;
 
     assert.equal(receipt.logs.length, 1, "should have received one event");
     assert.equal(
